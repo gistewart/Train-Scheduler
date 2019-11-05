@@ -1,0 +1,21 @@
+.jumbotron {
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgb(111, 139, 111);
+    color: white;
+}
+
+.train-card,
+.schedule-card {
+    margin: 10px auto;
+}
+
+.card-header {
+    background-color: rgb(227, 248, 227);
+}
+
+#train-schedule th,
+td {
+    display: inline-block;
+    width: 20.0%
+}
