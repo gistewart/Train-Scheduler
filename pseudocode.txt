@@ -1,0 +1,9 @@
+Add app to project in Firebase, then use authentication data to initialize Firebase in app.js.
+
+Set up html code to create an empty Current Train Schedule table that will have rows appended to it as trains are added (submitted).
+
+Set up html code to create an input form for adding trains with submit button.
+
+Need to capture user inputs in variables, clear table and update database when submit button is clicked.
+
+When database recognizes a change, it needs to calculate Next Arrival time and Minutes Away values and create a new row in the Current Train Schedule table and append new row to table.

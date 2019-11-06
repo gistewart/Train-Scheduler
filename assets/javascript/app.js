@@ -33,7 +33,7 @@ $(document).ready(function() {
         console.log(trainFirstTime);
         console.log(trainFrequency);
 
-        //declare local temp object for holding employee data
+        //declare local temp object for holding train data
         var newTrain = {
             name: trainName,
             destination: trainDestination,
@@ -58,64 +58,65 @@ $(document).ready(function() {
 
     });
 
-    //Create Firebase event for adding an employee to the db and the changes to the DOM
+    //Create Firebase event for adding a train to the db and making changes to the DOM
     database.ref().on("child_added", function(trainSnapshot) {
-        console.log(trainSnapshot.val());
+            console.log(trainSnapshot.val());
 
-        // Store everything into a variable.
-        var trainName = trainSnapshot.val().name;
-        var trainDestination = trainSnapshot.val().destination;
-        var trainFirstTime = trainSnapshot.val().firstTime;
-        var trainFrequency = trainSnapshot.val().frequency;
+            // Store everything into a variable.
+            var trainName = trainSnapshot.val().name;
+            var trainDestination = trainSnapshot.val().destination;
+            var trainFirstTime = trainSnapshot.val().firstTime;
+            var trainFrequency = trainSnapshot.val().frequency;
 
-        console.log(trainName);
-        console.log(trainDestination);
-        console.log(trainFirstTime);
-        console.log(trainFrequency);
+            console.log(trainName);
+            console.log(trainDestination);
+            console.log(trainFirstTime);
+            console.log(trainFrequency);
 
-        //Calculate the Next Arrival and Minutes Away values
+            //Calculate the Next Arrival and Minutes Away values
 
-        // 1. First time (t minus 1 year)
-        var trainFirstTimeConverted = "";
-        trainFirstTimeConverted = moment(trainFirstTime, "HH:mm").subtract(1, "years");
-        console.log(trainFirstTimeConverted);
+            // 1. First time (t minus 1 year)
+            var trainFirstTimeConverted = "";
+            trainFirstTimeConverted = moment(trainFirstTime, "HH:mm").subtract(1, "years");
+            console.log(trainFirstTimeConverted);
 
-        // 2. Current time
-        var currentTime = moment();
-        console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+            // 2. Current time
+            var currentTime = moment();
+            console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
-        // 3. Difference between the times
-        var diffTime = moment().diff(moment(trainFirstTimeConverted), "minutes");
-        console.log("DIFFERENCE IN TIME: " + diffTime);
+            // 3. Difference between the times
+            var diffTime = moment().diff(moment(trainFirstTimeConverted), "minutes");
+            console.log("DIFFERENCE IN TIME: " + diffTime);
 
-        // 4. Minutes since last train
-        var trainRemainder = diffTime % trainFrequency;
-        console.log(trainRemainder);
+            // 4. Minutes since last train
+            var trainRemainder = diffTime % trainFrequency;
+            console.log(trainRemainder);
 
-        // 5. Minutes until next train
-        var trainMinutesTillTrain = trainFrequency - trainRemainder;
-        console.log("MINUTES TILL TRAIN: " + trainMinutesTillTrain);
+            // 5. Minutes until next train
+            var trainMinutesTillTrain = trainFrequency - trainRemainder;
+            console.log("MINUTES TILL TRAIN: " + trainMinutesTillTrain);
 
-        // 6. Next Train arrival time
-        var nextTrain = moment().add(trainMinutesTillTrain, "minutes");
-        console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+            // 6. Next Train arrival time
+            var nextTrain = moment().add(trainMinutesTillTrain, "minutes");
+            console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+            nextTrain = moment(nextTrain).format("hh:mm A");
 
-        // Create the new row
-        var newRow = $("<tr>").append(
-            $("<td>").text(trainName),
-            $("<td>").text(trainDestination),
-            $("<td>").text(trainFrequency)
-            //next arrival
-            //minutes away
-        );
+            // Create the new row
+            var newRow = $("<tr>").append(
+                $("<td>").text(trainName),
+                $("<td>").text(trainDestination),
+                $("<td>").text(trainFrequency),
+                $("<td>").text(nextTrain),
+                $("<td>").text(trainMinutesTillTrain)
+            );
 
-        //Append the new role to the table 
-        $("#train-schedule > tbody").append(newRow);
+            //Append the new row to the table 
+            $("#train-schedule > tbody").append(newRow);
 
-    });
+        }),
 
-    // function(errorObject) {
-    //     console.log("The read failed: " + errorObject.code);
-    // });
+        function(errorObject) {
+            console.log("The read failed: " + errorObject.code);
+        };
 
-})
+});

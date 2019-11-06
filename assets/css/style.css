@@ -12,6 +12,7 @@
 
 .card-header {
     background-color: rgb(227, 248, 227);
+    font-weight: 800;
 }
 
 #train-schedule th,
