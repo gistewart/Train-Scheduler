@@ -18,9 +18,6 @@ $(document).ready(function() {
 
     // Capture Button Click
     $("#add-train").on("click", function(event) {
-        // prevent page from refreshing when form tries to submit itself
-        event.preventDefault();
-
         // Capture user inputs and store them into variables
         var trainName = $("#name-input").val().trim();
         var trainDestination = $("#destination-input").val().trim();
@@ -55,6 +52,9 @@ $(document).ready(function() {
         $("#destination-input").val("");
         $("#first-train-input").val("");
         $("#frequency-input").val("");
+
+        //to force a page refresh from the server to update the Next Arrival and Minutes Away times for the trains already in the table
+        document.location.reload(true);
 
     });
 

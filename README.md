@@ -1,16 +1,21 @@
 # Train-Scheduler
 
 ## Project Functionality
-This is a game for web browsers where the user answers a number of questions.  Radio buttons represent 4 possible answers to each question. The radio buttons mean only 1 answer can be provided. As soon as the game starts, a timer begins, and when the timer expires, the game ends and the results are shown. The user can opt to see the results earlier by clicking a Done button. Results for correct answers, incorrect answers and unanswered questions are shown.
+This is an exercise for web browsers where the user enters details for train arrivals via a form and then hits submit. Even though the form clears (to allow the details of a new train to be entered) the previously submitted train details are stored in a Firebase database on the backend.  This example of persistent storage means that the details of all trains (together with some calculated values) can be listed in a table in the browser. 
 
 ## Project Usefulness
-This project demonstrates the applicaton of the jQuery library including click events, a timer, content being hidden and displayed, and updates to the HTML file based on user behavior. 
+There are 3 main areas of note:
+1. It uses Firebase to store the details of all the trains
+2. It uses the moment.js library to perform time calculations
+3. It uses the jQuery library including click events and DOM manipulation 
 
 ## How to get started
-On page load, the user just needs to click Start to start the game. The user can play as many times as they wish by refreshing the page, but the questions remain the same. 
+On page load, the user just needs to add a train's details via the Submit button. As Firebase recognizes new data being added, it appends a new row to the table in the browser.   
 
 ## How to get help
 [jQuery Official Website](https://jquery.com/)
+[Moment Official Website](https://momentjs.com/)
+[Firebase Official Website](https://firebase.google.com/)
 
 ## Project maintenance and contributions
 This is not an original game.  Instead, this project was prepared as part of an assignment for Georgia Tech's Coding Boot Camp.
