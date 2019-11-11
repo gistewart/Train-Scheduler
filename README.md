@@ -3,6 +3,12 @@
 ## Project Functionality
 This is an exercise for web browsers where the user enters details for train arrivals via a form and then hits submit. Even though the form clears (to allow the details of a new train to be entered) the previously submitted train details are stored in a Firebase database on the backend.  This example of persistent storage means that the details of all trains (together with some calculated values) can be listed in a table in the browser. 
 
+## Project Challenges
+The main challenges of this project, and the solutions used, were as follows:
+    - storing and displaying train updates in such a way that different users on different browsers would see the same info: achieved by using a Firebase database on the back end
+    - performing calculations involving times: achived by using the moment.js library
+    - capturing user clicks and displaying info from the database in a table in the browser: achieved by using the jQuery library
+
 ## Project Usefulness
 There are 3 main areas of note:
 1. It uses Firebase to store the details of all the trains
