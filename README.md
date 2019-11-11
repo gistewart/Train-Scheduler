@@ -5,9 +5,9 @@ This is an exercise for web browsers where the user enters details for train arr
 
 ## Project Challenges
 The main challenges of this project, and the solutions used, were as follows:
-    - storing and displaying train updates in such a way that different users on different browsers would see the same info: achieved by using a Firebase database on the back end
-    - performing calculations involving times: achived by using the moment.js library
-    - capturing user clicks and displaying info from the database in a table in the browser: achieved by using the jQuery library
+1. storing and displaying train updates in such a way that different users on different browsers would see the same info: achieved by using a Firebase database on the back end
+2. performing calculations involving times: achived by using the moment.js library
+3. capturing user clicks and displaying info from the database in a table in the browser: achieved by using the jQuery library
 
 ## Project Usefulness
 There are 3 main areas of note:
