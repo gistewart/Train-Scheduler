@@ -26,5 +26,8 @@ On page load, the user just needs to add a train's details via the Submit button
 ## Project maintenance and contributions
 This is not an original game.  Instead, this project was prepared as part of an assignment for Georgia Tech's Coding Boot Camp.
 
+## Deployed link
+https://gistewart.github.io/Train-Scheduler/
+
 
 
